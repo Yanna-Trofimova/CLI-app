@@ -9,25 +9,41 @@ const contacts = require("./contacts")
 const  invokeAction = async ({ action, id, name, email, phone }) => {
     switch (action) {
         case "list":
-            const allContacts = await contacts.listContacts();
-            return console.log(allContacts);
+            try {
+                const allContacts = await contacts.listContacts();
+                return console.log(allContacts);
+            } catch (error) {
+                console.log(error);
+            }
           
     
 
         case "get":
-            const oneContact = await contacts.getContactById(id );
-            return console.log(oneContact);
+            try {
+                const oneContact = await contacts.getContactById(id);
+                return console.log(oneContact);
+            } catch (error) {
+                console.log(error);
+            }
         
  
 
         case "add":
-            const newContact = await contacts.addContact({ name, phone, email });
-            return console.log(newContact);
+            try {
+                const newContact = await contacts.addContact({ name, phone, email });
+                return console.log(newContact);
+            } catch (error) {
+                console.log(error);
+            }
  
 
         case "remove":
-            const deleteContact = await contacts.removeContact(id);
-            return console.log(deleteContact);
+            try {
+                const deleteContact = await contacts.removeContact(id);
+                return console.log(deleteContact);
+            } catch (error) {
+                console.log(error);
+            }
     
 
 
